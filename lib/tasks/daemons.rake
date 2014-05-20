@@ -6,7 +6,7 @@ namespace :daemons do
   %i[start stop status].each do |action|
     desc "#{action.capitalize} all daemons."
     task action do
-      puts `#{daemons_dir}/daemons #{action}`
+      exec "#{daemons_dir}/daemons", action.to_s
     end
   end
 end
